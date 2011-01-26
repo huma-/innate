@@ -1,3 +1,3 @@
 module Innate
-  VERSION = "2010.07"
+  VERSION = "2011.01"
 end
