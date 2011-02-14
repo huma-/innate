@@ -100,8 +100,6 @@ module Innate
     #   Headers that will be merged into the response before Node::call
     # @option param :trap    [String]  ('SIGINT')
     #   Trap this signal to issue shutdown, nil/false to disable trap
-    # @option param :state   [Symbol]  (:Fiber)
-    #   Keep state in Thread or Fiber, fall back to Thread if Fiber not available
     # @option param :mode    [Symbol]  (:dev)
     #   Indicates which default middleware to use, (:dev|:live)
     def start(options = {}, &block)
