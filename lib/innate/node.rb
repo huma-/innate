@@ -503,8 +503,8 @@ module Innate
     # @todo Once 1.9 is mainstream we can use Method#parameters to do accurate
     #       prediction
     def find_method(name, params)
-      return unless arity = method_arities[name]
-      name if arity == params.size or arity < 0
+      return unless arity = method_arities[name.to_s]
+      name if arity == params.size || arity < 0
     end
 
     # Answer with a hash, keys are method names, values are method arities.
