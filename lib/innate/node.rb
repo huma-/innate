@@ -652,6 +652,17 @@ module Innate
     # A Node can only have one layout, although the template being chosen can
     # depend on {provides}.
     #
+    # @example
+    #   layout :foo
+    # @example
+    #   layout do |name, wish|
+    #     name == 'foo' ? 'dark' : 'bright'
+    #   end
+    # @example
+    #   layout :foo do |name, wish|
+    #     wish == 'html'
+    #   end
+    #
     # @param [String, #to_s] name basename without extension of the layout to use
     # @param [Proc, #call] block called on every dispatch if no name given
     #
@@ -660,12 +671,6 @@ module Innate
     # @api external
     # @see Node#find_layout Node#layout_paths Node#to_layout Node#app_layout
     # @author manveru
-    #
-    # NOTE:
-    #   The behaviour of Node#layout changed significantly from Ramaze, instead
-    #   of multitudes of obscure options and methods like deny_layout we simply
-    #   take a block and use the returned value as the name for the layout. No
-    #   layout will be used if the block returns nil.
     def layout(layout_name = nil, &block)
       if layout_name and block
         # default name, but still check with block
